@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Social links profile</title>
+
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div id="app"></div>
+
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/jsx">
+
+    const links = [
+      {title:"GitHub",url:"https://github.com/Artur-Neri"},
+      {title:"Frontend Mentor",url:"https://www.frontendmentor.io/profile/Artur-Neri"},
+      {title:"LinkedIn",url:"https://linkedin.com/in/artur-neri/"},
+      {title:"Instagram",url:"https://www.instagram.com/art_nerii/"}
+    ]
+
+    function ProfileImage(props) {
+      return <img src={props.imgUrl} alt={`Foto do ${name}`} className="picture" />
+    }
+
+    function PersonalInfo(props) {
+      return <div className="personal-info">
+              <h1 className="name">{props.name}</h1>
+              <p className="location">{props.location}</p>
+            </div>
+    }
+
+    function Phrase(props) {
+      return <p className="phrase">{props.text}</p>
+    }
+
+    function Link(props){
+      return (
+        <a href={props.url} target="_blank">
+          <li className="link">{props.title}</li>
+        </a>
+              )
+    }
+
+    function Card(props) {
+      return <div className="card">
+
+        <ProfileImage imgUrl="https://github.com/Artur-Neri.png" name={props.name}/>
+        <PersonalInfo name={props.name} location="Marília, São Paulo." />
+        <Phrase text="Front-end developer and avid reader." />
+        <ul className="social-links">
+          {links.map((link) => (
+            <Link key={link.title} title={link.title} url={link.url} />
+          ))}
+        </ul>
+
+      </div>
+    }
+
+    const app = document.querySelector('#app');
+    const root = ReactDOM.createRoot(app);
+    root.render(<Card name="Artur Neri"/>);
+  </script>
+
+</body>
+</html>
