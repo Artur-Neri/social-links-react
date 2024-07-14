@@ -42,9 +42,11 @@
 
     function Link(props){
       return (
-        <a href={props.url} target="_blank">
-          <li className="link">{props.title}</li>
-        </a>
+        <li className="link">
+          <a href={props.url} target="_blank">
+            {props.title}
+          </a>
+        </li>
               )
     }
 
