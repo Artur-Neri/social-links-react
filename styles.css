@@ -78,17 +78,19 @@ body {
     background-color: var(--color-gray);
     width: 100%;
     text-align: center;
-    padding: 12px 0;
     border-radius: 8px;
+    overflow: hidden;
 }
 
-a:hover .link{
+.link:hover a{
     background-color: var(--color-neon-green);
     color: var(--color-black);
 }
 
 a{
+    display: inline-block;
     color: var(--color-white);
     font-weight: 700;
     width: 100%;
+    padding: 12px 0;
 }
